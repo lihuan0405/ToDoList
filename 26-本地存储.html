@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+    <script src="JS/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        var todolist = [{
+            title: '我中午吃了肉臊子干拌面',
+            done: false
+        }, {
+            title: '我晚吃啥子呢',
+            done: false
+        },
+        ]
+        // localStorage.setItem("todo", todolist)
+        //  1.  本地存储里面只能储存字符串的数据格式，我们的数组对象转换为字符串格式 JSON.stringify()
+        localStorage.setItem("todo", JSON.stringify(todolist))
+        //   2.  获取的时候需要转换字符串为数组对象 JSON.parse
+        var data = JSON.parse(localStorage.getItem('todo'))
+        console.log(data[0].title);
+    </script>
+
+</body>
+
+</html>
